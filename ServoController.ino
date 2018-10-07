@@ -16,7 +16,6 @@ int pos;
 int buttonState = 0, failsafe = 0;         // variable for reading the buttonstate status
 
 void setup() {
-
   pinMode(failSafeButton, INPUT);
   pinMode(buttonPin, INPUT);
 
@@ -47,7 +46,7 @@ void loop() {
   } 
 
 
-
+if(isRunning){
   // step function
     int currentPSI = getLoadCellValue();
   if(60 > currentPSI >= 40){
@@ -61,6 +60,9 @@ void loop() {
       runServoToDegree(4);
   }
 
+}else{
+  setLedBlue();
+}
 
 }
 
