@@ -10,7 +10,7 @@ const int bluePin =2;
 const int greenPin = 3;
 
 Servo myServo; 
-int pos;
+int pos = 0;
 
 // variables will change:
 int buttonState = 0, failsafe = 0;         // variable for reading the buttonstate status
@@ -96,13 +96,20 @@ void setLedBlue(){
 
 
 int fromDegreesToTimeToWait(int degrees){
-  return map(degrees,0,90,0,1500);
+  int wait = map(degrees,0,90,0,1500) + 100;
+  return wait;
 }
 
-//TODO complete once the calabration values are in 
+
 int getLoadCellValue(){
 
-  //Do work
+  int sensorValue = analogRead(somepine);
+  // Convert the analog reading  to mV (0 - 5000 mV):
+  float miliVoltage = (sensorValue * (5.0 / 1023.0))/1000;  
+  float m = 0.0;
+  float b = 0.0;
 
-  return 1;
+  float psi = m*miliVoltage+b;
+
+  return psi;
 }
