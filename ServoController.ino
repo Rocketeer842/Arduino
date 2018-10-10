@@ -38,11 +38,12 @@ void loop() {
   if (buttonState == HIGH) {
     // turn autonomous performance on or off.
     isRunning = !isRunning;
-    delay(1000);   // waits for a second
     if(isRunning)
       setLedGreen();
     else
-      setLedBlue();               
+      setLedBlue();      
+    delay(1000);   // waits for a second
+         
   } 
 
 
