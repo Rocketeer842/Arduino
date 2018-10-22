@@ -59,8 +59,7 @@ void loop() {
       "\nNDP-1: "+NDPtwo +" psi" +
       "\nload cell: "+ lbf +" lbf" +
       "\n Servo: "+pos+ " degrees" + 
-      "\n Servo: "+pos+ " degrees" 
-
+      "\n Time since start: "+timeNow+ " ms" 
       );
     // check if failsafe needed
   if(failsafe == HIGH || pressureRatio >= 1.2  ){
@@ -158,7 +157,7 @@ void fromDegreesToTimeToWait(int degrees){
 float getSensorValue(float m , float b,int pin){
 
   int sensorValue = analogRead(pin);
-  delay(10);
+  delay(5);
   sensorValue = analogRead(pin);
   // Convert the analog reading  to mV (0 - 5000 mV):
   float miliVoltage = (sensorValue * (5.0 / 1023.0))/1000;  
