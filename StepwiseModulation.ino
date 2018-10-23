@@ -156,8 +156,7 @@ void fromDegreesToTimeToWait(int degrees){
 float getSensorValue(float m , float b,int pin){
 
   int sensorValue = analogRead(pin);
-  delay(10);
-  sensorValue = analogRead(pin);
+
   // Convert the analog reading  to mV (0 - 5000 mV):
   float miliVoltage = (sensorValue * (5.0 / 1023.0))/1000;  
 
